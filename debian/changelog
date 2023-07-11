@@ -1,5 +1,209 @@
-template-repository (1.0-1) unstable; urgency=medium
+arp-scan (1.10.0-2) unstable; urgency=medium
 
-  * Initial release
+  * Add NEWS.md in d/arp-scan.docs (Closes: #1029318).
+  * Change ieee-data, libtext-csv-perl and libwww-perl packages
+    from Depends to Recommends (Closes: #1029317).
+  * Build and execute with POSIX.1e capabilities support (Closes: #1029319).
+  * Bump to Standards-Version 4.6.2 (no changes required).
+  * Update d/copyright.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Marcos Fouces <marcos@debian.org>  Sat, 21 Jan 2023 23:07:21 +0100
+
+arp-scan (1.10.0-1) unstable; urgency=medium
+
+  * New upstream version 1.10.0
+  * Refresh patches.
+  * Add libtext-csv-perl dependency.
+
+ -- Marcos Fouces <marcos@debian.org>  Tue, 10 Jan 2023 23:38:49 +0100
+
+arp-scan (1.9.8-1) unstable; urgency=medium
+
+  * New upstream version 1.9.8
+  * Refresh patches for new usptream release.
+  * Bump to Standards-Version 4.6.1 (no changes required).
+  * Update d/copyright file.
+
+ -- Marcos Fouces <marcos@debian.org>  Tue, 11 Oct 2022 18:48:43 +0200
+
+arp-scan (1.9.7-2) unstable; urgency=medium
+
+  * Update uploader email to @debian.org.
+  * Bump to debhelper-compat level 13.
+  * Update copyright date.
+  * Update watch file standard to level 4.
+  * Bump to Standards-Version 4.5.1 (no changes required).
+
+ -- Marcos Fouces <marcos@debian.org>  Wed, 10 Feb 2021 23:51:26 +0100
+
+arp-scan (1.9.7-1) unstable; urgency=medium
+
+  * New upstream version 1.9.7
+  * Refresh patches.
+
+ -- Marcos Fouces <marcos.fouces@gmail.com>  Sat, 16 Nov 2019 11:22:11 +0100
+
+arp-scan (1.9.6-1) unstable; urgency=medium
+
+  * New upstream version 1.9.6 (Closes: #944129).
+  * d/patches:
+    ~ Remove unneeded link_open-do-not-crash-when-run-as-non-root.patch
+    ~ Remove unneeded link-packet-socket.c
+    ~ Refreshed the rest.
+
+ -- Marcos Fouces <marcos.fouces@gmail.com>  Tue, 05 Nov 2019 23:01:59 +0100
+
+arp-scan (1.9.5-2) unstable; urgency=medium
+
+  [ Thiago Andrade Marques ]
+  * Team upload.
+  * Using DH compat format. Consequently:
+      - debian/compat: removed.
+      - debian/control: changed from 'debhelper 12' to 'debhelper-compat 12' in
+        Build-Depends field.
+  * debian/control:
+      - Added 'Rules-Requires-Root: no' in source stanza.
+      - Bumped Standards-Version to 4.4.1.
+  * debian/copyright:
+      - Added rights for Samuel Henrique and Thiago Andrade Marques.
+      - Updated the packaging copyright years.
+
+  [ Marcos Fouces ]
+  * Fixed name for README.md file (README -> README.md). (Closes: #910140)
+
+  [ Samuel Henrique ]
+  * Team upload.
+  * Add salsa-ci.yml
+
+ -- Thiago Andrade Marques <thmarques@gmail.com>  Thu, 31 Oct 2019 11:45:44 -0300
+
+arp-scan (1.9.5-1) unstable; urgency=medium
+
+  [ Hilko Bengen ]
+  * get-iab, get-oui: Open output files in UTF-8 mode  (Closes: #884730)
+
+  [ Marcos Fouces ]
+  * Set proper header to Hilko's patch
+  * Update my email address
+  * Bumped Standards-Version to 4.2.0.
+  * New upstream version 1.9.5
+  * Refresh patch to new upstream release.
+  * Bump to dh 11.
+  * Remove trailing whitespace.
+  * Add patch to fix some spelling errors.
+
+  [ Raphaël Hertzog ]
+  * Update team maintainer address to
+    Debian Security Tools <team+pkg-security@tracker.debian.org>
+  * Update Vcs-Git and Vcs-Browser for the move to salsa.debian.org
+  * Replace shebang of perl scripts with a new patch.
+
+ -- Marcos Fouces <marcos.fouces@gmail.com>  Tue, 21 Aug 2018 21:35:50 +0200
+
+arp-scan (1.9-3) unstable; urgency=medium
+
+  * Team upload.
+  * Cherry-pick patch from upstream to handle socket errors gracefully.  This
+    fixes the segmentation fault when arp-scan is run without root privileges
+    (Closes: #881125).
+  * Bumped Standards-Version to 4.1.1 (no change needed).
+  * Drop old bsd patch
+  * Drop some old lintian overrides
+  * Wrap-and-sort, remove trailing whitespaces
+
+  [ Marcos Fouces ]
+  * Update maintainer email address
+
+ -- Lukas Schwaighofer <lukas@schwaighofer.name>  Wed, 08 Nov 2017 18:30:56 +0100
+
+arp-scan (1.9-2) unstable; urgency=medium
+
+  * Add proper values to vcs fields in control file
+  * Change binaries path to /usr/sbin (Closes: #681519)
+  * Update to debhelper 10
+
+ -- Marcos Fouces <mfouces@yahoo.es>  Thu, 20 Oct 2016 23:56:41 +0200
+
+arp-scan (1.9-1) unstable; urgency=medium
+
+  * Fix watch file
+  * Add hardening flags (closes: #763183)
+  * Build with autoreconf (closes: #727323)
+  * Update to debhelper 9
+  * Update copyright file to be dep-5 compliant
+  * Bump standards-revision to 3.9.8
+  * Set maintenance to pkg-security team with permission
+    of William Vera.
+  * New upstream release already imported on previous
+    Kali release (Closes: #807750, #742571)
+  * Use ieee-data package instead of fetch from ieee website
+    (closes: #481296, #739200)
+
+ -- Marcos Fouces <mfouces@yahoo.es>  Fri, 26 Aug 2016 15:13:01 +0200
+
+arp-scan (1.9-0kali1) kali; urgency=low
+
+  * Imported new upstream release (Closes: 0001027)
+
+ -- Devon Kearns <dookie@kali.org>  Wed, 12 Feb 2014 09:29:24 -0700
+
+arp-scan (1.8.1-2) unstable; urgency=low
+
+  * Added a patch to fix FTBFS on GNU/kFreeBSD. (Closes: #641643)
+     + Thanks to Mats Erik Andersson.
+  * Updated Standards Version to 3.9.3.
+
+ -- William Vera <billy@billy.com.mx>  Mon, 05 Mar 2012 22:00:00 -0600
+
+arp-scan (1.8.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #543383).
+  * Added William Vera as Uploader.
+  * Added a debian/watch file.
+  * Added "Homepage" in debian/control.
+  * Added libwww-perl as Recommend depend (Closes: #630563).
+  * Fixed empty-directory usr/sbin/.
+  * Added a patch to fix hyphen-used-as-minus-sign.
+  * Updated debian/copyright
+  * Updated debhelper version (>= 8).
+  * Updated debian/compat to 8.
+  * Updated Standards Version to 3.9.2.
+  * Cleanup debian/rules.
+     + distclean rule.
+  * Switch to dpkg-source 3.0 (quilt) format
+
+ -- William Vera <billy@billy.com.mx>  Mon, 04 Jul 2011 19:37:30 -0500
+
+arp-scan (1.6-2) unstable; urgency=low
+
+  * Checksums weren't matching
+  * Upload sponsored by Philipp Hug <debian@hug.cx>
+
+ -- Tim Brown <timb@nth-dimension.org.uk>  Tue, 22 May 2007 21:57:35 +0100
+
+arp-scan (1.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Tim Brown <timb@nth-dimension.org.uk>  Mon, 23 Apr 2007 15:17:25 +0100
+
+arp-scan (1.5-5) unstable; urgency=low
+
+  * Minor packaging flaw with orig tar ball
+
+ -- Tim Brown <timb@nth-dimension.org.uk>  Tue, 27 Mar 2007 16:56:10 +0100
+
+arp-scan (1.5-4) unstable; urgency=low
+
+  * Moved to main
+  * Fixed W: arp-scan: extended-description-line-too-long?
+  * Removed ieee-iab.txt, mac-vendor.txt and ieee-oui.txt from docs
+    list
+
+ -- Tim Brown <timb@nth-dimension.org.uk>  Tue, 20 Mar 2007 18:40:59 +0000
+
+arp-scan (1.5-3) unstable; urgency=low
+
+  * Initial release (Closes: #415036)
+
+ -- Tim Brown <timb@nth-dimension.org.uk>  Tue, 13 Mar 2007 11:54:46 +0000

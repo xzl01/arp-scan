@@ -1,0 +1,12 @@
+Since version 1.10.0, arp-scan includes the ability to compile
+it with capabilities support. Since the Debian kernel also
+includes support for capabilities, this feature is also
+included in this Debian package, although a normal user still
+can't run all arp-scan options.
+
+If you want to run arp-scan from a normal (non-privileged) user,
+you have run the following as root:
+
+# setcap cap_net_raw+p /usr/sbin/arp-scan
+
+From there, all users can run all arp-scan options.

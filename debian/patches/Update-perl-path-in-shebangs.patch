@@ -1,0 +1,40 @@
+From: =?utf-8?q?Rapha=C3=ABl_Hertzog?= <hertzog@debian.org>
+Date: Tue, 21 Aug 2018 21:58:30 +0200
+Subject: Update perl path in shebangs
+
+This fixes the following lintian errors:
+E: arp-scan: wrong-path-for-interpreter usr/sbin/arp-fingerprint (#!/usr/bin/env != /usr/bin/perl)
+E: arp-scan: wrong-path-for-interpreter usr/sbin/get-iab (#!/usr/bin/env != /usr/bin/perl)
+E: arp-scan: wrong-path-for-interpreter usr/sbin/get-oui (#!/usr/bin/env != /usr/bin/perl)
+
+This for compliance with Debian policy 10.4.
+---
+ arp-fingerprint | 2 +-
+ get-iab         | 2 +-
+ get-oui         | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+--- a/arp-fingerprint
++++ b/arp-fingerprint
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ #
+ # Copyright 2006-2016 Roy Hills
+ #
+--- a/get-iab
++++ b/get-iab
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ #
+ use warnings;
+ use strict;
+--- a/get-oui
++++ b/get-oui
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ #
+ # Copyright 2006-2022 Roy Hills
+ #

@@ -1,0 +1,129 @@
+Author: Marcos Fouces <marcos@debian.org>
+Description: Use data from ieee-data package instead of downloading from ieee
+ website.
+
+--- a/get-oui
++++ b/get-oui
+@@ -37,16 +37,16 @@
+ # The entries will be written to the output in alphabetical key order, not
+ # the order they are listed in the hash.
+ my %ieee_reg_urls = (
+-#   OUI   => 'file:///usr/share/ieee-data/oui.csv',
+-#   MAM   => 'file:///usr/share/ieee-data/mam.csv',
+-#   OUI36 => 'file:///usr/share/ieee-data/oui36.csv',
+-#   IAB   => 'file:///usr/share/ieee-data/iab.csv',
+-   OUI   => 'https://standards-oui.ieee.org/oui/oui.csv',
+-   MAM   => 'https://standards-oui.ieee.org/oui28/mam.csv',
+-   OUI36 => 'https://standards-oui.ieee.org/oui36/oui36.csv',
+-   IAB   => 'https://standards-oui.ieee.org/iab/iab.csv'
++   OUI   => 'file:///var/lib/ieee-data/oui.csv',
++   MAM   => 'file:///var/lib/ieee-data/mam.csv',
++   OUI36 => 'file:///var/lib/ieee-data/oui36.csv',
++   IAB   => 'file:///var/lib/ieee-data/iab.csv',
++   #   OUI   => 'https://standards-oui.ieee.org/oui/oui.csv',
++   #   MAM   => 'https://standards-oui.ieee.org/oui28/mam.csv',
++   #   OUI36 => 'https://standards-oui.ieee.org/oui36/oui36.csv',
++   #   IAB   => 'https://standards-oui.ieee.org/iab/iab.csv'
+ );
+-my $default_filename='ieee-oui.txt';
++my $default_filename='/usr/share/arp-scan/ieee-oui.txt';
+ #
+ my $usage =
+ qq/Usage: get-oui [options]
+--- a/get-oui.1.dist
++++ b/get-oui.1.dist
+@@ -7,15 +7,15 @@
+ .TH GET-OUI 1 "October 28, 2022"
+ .\" Please adjust this date whenever revising the man page.
+ .SH NAME
+-get-oui \- Fetch the arp-scan OUI file from the IEEE website
++get-oui \- Fetch the arp-scan OUI file from the ieee-data package
+ .SH SYNOPSIS
+ .B get-oui
+ .RI [ options ]
+ .SH DESCRIPTION
+ .B get-oui
+-fetches the MAC/Vendor registry data from the IEEE website
++fetches the MAC/Vendor registry data from the ieee-data package
+ and converts it to the format used by arp-scan. The contents of
+-the following registries are downloaded and processed:
++the following registries are processed:
+ .sp
+ .TS
+ L L L .
+@@ -26,31 +26,25 @@
+ .TE
+ .PP
+ This script creates
+-.I ieee-oui.txt
+-from the latest data on the IEEE website.
++.I /usr/share/arp-scan/ieee-oui.txt
++from the latest data on the ieee-data package.
+ You can run
+-.B get-oui
++.B # update-ieee-data && get-oui
+ occasionally to keep the OUI file up to date.
++
+ .PP
+-The OUI data is fetched from the URLs specified in the \fBget-oui\fP script
++The OUI data is fetched from ieee-data package files defined in the \fBget-oui\fP script
+ and the output file is saved to the file
+-.I ieee-oui.txt
+-in the current directory.
++.I /usr/share/arp-scan/ieee-oui.txt
+ The output file name can be changed with the
+ .B -f
+ option.
+ .PP
+ The
+-.I ieee-oui.txt
+-file that is produced by this script is used by
++.I /usr/share/arp-scan/ieee-oui.txt
++file that is produced and updated by this script is used by
+ .B arp-scan
+ to determine the Ethernet card vendor from its hardware address.
+-.PP
+-.B arp-scan
+-will first look for
+-.I ieee-oui.txt
+-in the current directory.  If that fails, it will use the system wide file
+-\fI@PKGDATADIR@/ieee-oui.txt\fP.
+ .SH OPTIONS
+ .TP
+ .B -h
+@@ -58,29 +52,29 @@
+ .TP
+ \fB-f \fI<fn>\fR
+ Write the output to the specified file instead of the default
+-.I ieee-oui.txt.
++.I /usr/share/arp-scan/ieee-oui.txt.
+ .TP
+ .B -v
+ Display verbose progress messages.
+ .SH FILES
+ .TP
+-.I ieee-oui.txt
++.I /usr/share/arp-scan/ieee-oui.txt
+ The default output file.
+ .SH EXAMPLES
+ .nf
+ $ ./get-oui -v
+ Renaming ieee-oui.txt to ieee-oui.txt.bak
+ Opening ieee-oui.txt for output
+-Processing IEEE IAB registry data from https://standards-oui.ieee.org/iab/iab.csv
++Processing IEEE IAB registry data from file:///var/lib/ieee-data/iab.csv
+         Downloaded 381454 bytes
+         4575 IAB entries written to ieee-oui.txt
+-Processing IEEE MAM registry data from https://standards-oui.ieee.org/oui28/mam.csv
++Processing IEEE MAM registry data from file:///var/lib/ieee-data/mam.csv
+         Downloaded 492756 bytes
+         4477 MAM entries written to ieee-oui.txt
+-Processing IEEE OUI registry data from https://standards-oui.ieee.org/oui/oui.csv
++Processing IEEE OUI registry data from file:///var/lib/ieee-data/oui.csv
+         Downloaded 3051812 bytes
+         32845 OUI entries written to ieee-oui.txt
+-Processing IEEE OUI36 registry data from https://standards-oui.ieee.org/oui36/oui36.csv
++Processing IEEE OUI36 registry data from file:///var/lib/ieee-data/oui36.csv
+         Downloaded 466151 bytes
+         5131 OUI36 entries written to ieee-oui.txt
+ 

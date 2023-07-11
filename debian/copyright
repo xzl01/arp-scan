@@ -1,9 +1,33 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: template-repository
-Source: https://github.com/deepin-community/template-repository
+Upstream-Name: arp-scan
+Source: https://github.com/royhills/arp-scan
 
 Files: *
-Copyright: 2023 Tsic404 <liuheng@deepin.org>
+Copyright: 2005-2023 Roy Hills <Roy.Hills@nta-monitor.com>
+License: GPL-3+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+Files: debian/*
+Copyright: 2007 Tim Brown <timb@nth-dimension.org.uk>
+           2011,2012 William Vera <billy@billy.com.mx>
+           2014 Devon Kearns <dookie@kali.org>
+           2019 Samuel Henrique <samueloph@debian.org>
+           2019 Thiago Andrade Marques <thmarques@gmail.com>
+           2016-2023 Marcos Fouces <marcos@debian.org>
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
